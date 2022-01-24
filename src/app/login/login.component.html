@@ -1,0 +1,27 @@
+<!-- <div class="alert alert-danger" *ngIf="errorMessage!=''">{{errorMessage}}</div> -->
+        <form #f="ngForm" style="width: 476px;height: 477px; background: #F9F9F9;">
+            <h2 class="text-left" style="color: #6957E1; font-weight: bold; font-size: 20px;margin-top: 8%; margin-left: 5%;">Log In</h2>       
+            <div style="margin-left: 5%;margin-top: 5%;">Email</div>
+            <div style="margin-left: 5%; margin-top: 1%;width: 90%;" class="form-group">
+                <input required ngModel name="Email" #Email="ngModel" [(ngModel)]="userEmail" type="text" class="form-control" placeholder="Enter your email">
+                <div class="alert alert-danger" *ngIf="Email.touched && !Email.valid">Email is required</div>
+            </div>
+            <div style="margin-left: 5%;margin-top: 5%;">Password</div>
+            <div style="margin-left: 5%;margin-top: 1%; width: 90%;" class="form-group">
+                <input required ngModel name="Password" #Password="ngModel" [(ngModel)]="userPassword" type="password" class="form-control" placeholder="Enter password">
+                <div class="alert alert-danger" *ngIf="Password.touched && !Password.valid">Password is required</div>
+                <!-- <div class="clearfix" style="text-align: right;">
+                    <a (click)="forgotPassword()" href="{{Email.valid ? '#' : '#'}}">Forgot Password?</a>
+                    <div class="alert alert-danger" *ngIf="forgotPasswordError!='' && !Email.valid">{{forgotPasswordError}}</div>
+                </div> -->
+            </div>
+            <div class="form-group">
+                <button (click)="onLogin()" style="margin-top: 12%; margin-left: 30%;" type="submit" >Login</button>
+            </div>
+            <div class="form-group">
+                <button (click)="onSignup()" style="margin-top: 12%; margin-left: 30%;" type="signup" >Signup</button>
+            </div>
+            <!-- <div>
+                <a id="loginButton" style="margin-top: 12%; margin-left: 36%; font-size: 10px;" href="http://www.google.com" target="_parent"><button>Create an Account</button></a>
+            </div> -->
+        </form>
