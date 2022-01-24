@@ -1,5 +1,15 @@
 import mysql.connector
-from os import listdir
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="password",
+  auth_plugin='mysql_native_password'
+)
+
+mycursor = mydb.cursor()
+sql = "CREATE DATABASE IF NOT EXISTS fintech"
+mycursor.execute(sql)
 
 mydb = mysql.connector.connect(
   host="localhost",

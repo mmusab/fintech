@@ -30,16 +30,16 @@ def checkLogin(userEmail,userPassword):
     print(result)
     if(result[0][1] == userPassword):
       json_data["authorized"] = "True"
-      json_data["id"] = [result[0][1]]
-      json_data["message"] = ["login succsfull"]
+      json_data["id"] = result[0][0]
+      json_data["message"] = "login succsfull"
     else:
       json_data["authorized"] = "False"
-      json_data["id"] = ["id"]
-      json_data["message"] = ["password incorrect"]
+      json_data["id"] = "id"
+      json_data["message"] = "password incorrect"
   else:
     json_data["authorized"] = "False"
-    json_data["id"] = ["id"]
-    json_data["message"] = ["Email address not found"]
+    json_data["id"] = "id"
+    json_data["message"] = "Email address not found"
   return (json.dumps(json_data),json_data)
 
 ######### Login ###########

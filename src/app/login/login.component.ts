@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   }
   onLogin(){
     this.http.get('http://127.0.0.1:5002/login/' + this.userEmail + '/' + this.userPassword).subscribe((response)=>{
+      console.log((response as any));
       });
     console.log("in login")
   }
