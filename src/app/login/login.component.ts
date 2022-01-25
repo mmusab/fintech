@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  user:any;
   userEmail = "";
   userPassword = "";
   userInfo = {
@@ -14,13 +16,16 @@ export class LoginComponent implements OnInit {
     "password": "",
     "type": "admin"
  };
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router : Router) { }
 
   ngOnInit(): void {
   }
   onLogin(){
     this.http.get('http://127.0.0.1:5002/login/' + this.userEmail + '/' + this.userPassword).subscribe((response)=>{
-      console.log((response as any));
+      this.user = (response as any)
+      if(this.user['authorized'] == "True"){
+        this.router.navigate(['/app-products-list']);
+      }
       });
     console.log("in login")
   }

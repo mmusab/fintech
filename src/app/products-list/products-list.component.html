@@ -1,0 +1,20 @@
+<table mat-table style="width:50%">
+    <tr style="background-color: #6957E1; color: white; font-size: 12px;">
+        <th>product_id</th>
+        <th>title</th>
+        <th>date_added</th>
+        <th>date_updated</th>
+        <th>image</th>
+        <th>description</th>
+        <th>price</th>
+      </tr>
+      <tr *ngFor="let prod of products; let id = index">
+          <td>{{prod['product_id']}}</td>
+          <td>{{prod['title']}}</td>
+          <td>{{prod['date_added']}}</td>
+          <td>{{prod['dated_updated']}}</td>
+          <td>{{prod['image']}}</td>
+          <td>{{prod['description']}}</td>
+          <td>{{prod['price']}}</td>
+        </tr>
+    </table>

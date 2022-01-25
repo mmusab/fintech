@@ -3,6 +3,7 @@ import jwt
 import mysql.connector
 from flask import Flask, request
 from flask_cors import CORS
+from flask_jsonpify import jsonify
 
 app = Flask(__name__)
 # api = Api(app)
@@ -71,4 +72,17 @@ def signup():
   mycursor.execute(sql, value)
   mydb.commit()
   return ("success")
+
+######### get products ###########
+@app.route('/getProducts', methods=['GET', 'POST'])
+def getCompany():
+  sql = "SELECT * FROM products;"
+  mycursor.execute(sql)
+  result = mycursor.fetchall()
+  row_headers = [x[0] for x in mycursor.description]
+  # print(row_headers)
+  result = [dict(zip(row_headers, res)) for res in result]
+  # users = {"message": result};
+  print(result)
+  return jsonify(result)
 app.run(host='0.0.0.0', port=5002, debug=True)
