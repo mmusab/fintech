@@ -16,6 +16,6 @@ MySQL is used as a database with four tables:
 ###### categories
 ###### category_product_link
 following ERD is showing tables and there relationship.
-![alt text](https://github.com/[mmusab]/[fintech]/blob/[main]/ERD.png?raw=true)
+![alt text](https://github.com/mmusab/fintech/blob/main/ERD.png)
 
 dbInit.py is used to setup database and tables run this using following command to setup database.
